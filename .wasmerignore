@@ -1,0 +1,9 @@
+.venv/
+instance/
+*.db
+*.sqlite
+__pycache__/
+*.py[cod]
+.git/
+.gitignore
+migrations/__pycache__/

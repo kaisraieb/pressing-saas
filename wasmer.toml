@@ -1,0 +1,24 @@
+[[command]]
+name = "web"
+module = "wasmer/python:python"
+runner = "wasi"
+
+[command.annotations.wasi]
+main-args = ["/src/run.py"]
+env = [
+  "PYTHONEXECUTABLE=/bin/python",
+  "PYTHONPATH=/packages",
+]
+
+[package]
+name = "kaisraieb/pressing-saas"
+version = "0.1.4"
+description = "Subscription API for a multi-tenant pressing SaaS"
+readme = "README.md"
+
+[dependencies]
+"wasmer/python" = "^3.12.6"
+
+[fs]
+"/src" = "./wasmer-src"
+"/packages" = "./.env/lib/python3.12/site-packages"
