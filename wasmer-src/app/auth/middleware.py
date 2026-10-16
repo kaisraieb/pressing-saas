@@ -36,6 +36,14 @@ def _organization_id(claims):
         value = claims.get(key)
         if value:
             return str(value)
+
+    # Simple users do not have an organization claim. Use the verified
+    # subject as their tenant identity so their data remains isolated.
+    for key in ("sub", "id"):
+        value = claims.get(key)
+        if value:
+            return str(value)
+
     return None
 
 
