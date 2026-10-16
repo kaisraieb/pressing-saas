@@ -10,7 +10,7 @@ def create_app(config_class=Config):
 
     db.init_app(app)
     migrate.init_app(app, db)
-    cors.init_app(app, origins="*")
+    cors.init_app(app, origins="https://frontend.majd-sassi-dev.workers.dev")
 
     app.config["AUTH_JWKS_URL"] = app.config.get(
         "AUTH_JWKS_URL",
