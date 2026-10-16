@@ -1,7 +1,7 @@
 from flask import Flask
 
 from config import Config
-from app.extensions import db, migrate
+from app.extensions import db, migrate, cors
 
 
 def create_app(config_class=Config):
@@ -10,6 +10,7 @@ def create_app(config_class=Config):
 
     db.init_app(app)
     migrate.init_app(app, db)
+    cors.init_app(app, origins="*")
 
     app.config["AUTH_JWKS_URL"] = app.config.get(
         "AUTH_JWKS_URL",
